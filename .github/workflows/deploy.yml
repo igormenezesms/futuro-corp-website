@@ -3,7 +3,7 @@ name: Deploy Next.js to GitHub Pages
 on:
   push:
     branches:
-      - main # Mude para 'master' se o seu branch principal tiver esse nome
+      - main
   workflow_dispatch:
 
 permissions:
@@ -18,21 +18,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Configura o Node.js e habilita o cache para pnpm
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'pnpm' 
       
-      # Adicionamos o --legacy-peer-deps aqui também para garantir!
-      - name: Install Dependencies
-        run: npm install --legacy-peer-deps
+      # A maneira correta de instalar e usar pnpm no GitHub Actions
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8 # ou a versão que você usa
 
-      # Adicionamos a variável de ambiente para o assetPrefix funcionar
+      # Usa pnpm para instalar as dependências
+      - name: Install Dependencies
+        run: pnpm install
+
+      # Usa pnpm para construir o projeto, com a variável de ambiente correta
       - name: Build
         env:
           NEXT_PUBLIC_BASE_PATH: /futuro-corp-website
-        run: npm run build
+        run: pnpm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
