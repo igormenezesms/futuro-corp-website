@@ -7,4 +7,4 @@ const nextConfig = {
   assetPrefix: '/futuro-corp-website/',
 };
 
-module.exports = nextConfig;
+export default nextConfig;
