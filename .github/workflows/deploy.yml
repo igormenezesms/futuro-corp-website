@@ -37,8 +37,6 @@ jobs:
 
       # Usa pnpm para construir o projeto, com a variável de ambiente correta
       - name: Build
-        env:
-          NEXT_PUBLIC_BASE_PATH: /futuro-corp-website
         run: pnpm run build
 
       - name: Upload artifact
