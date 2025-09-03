@@ -26,10 +26,11 @@ jobs:
           cache: 'pnpm' 
       
       # A maneira correta de instalar e usar pnpm no GitHub Actions
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          version: 8 # ou a versão que você usa
+          node-version: '20'
+          cache: 'pnpm' 
 
       # Usa pnpm para instalar as dependências
       - name: Install Dependencies
