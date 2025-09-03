@@ -9,3 +9,5 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
+// Forçando atualização do build em 03/09/2025
