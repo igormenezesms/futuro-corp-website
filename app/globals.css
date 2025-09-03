@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match Futuro Corp brand palette */
+  --background: oklch(1 0 0); /* #ffffff */
+  --foreground: oklch(0.145 0.02 258.34); /* #19253f */
+  --card: oklch(0.97 0.005 240); /* #f1f5f9 */
+  --card-foreground: oklch(0.145 0.02 258.34); /* #19253f */
+  --popover: oklch(1 0 0); /* #ffffff */
+  --popover-foreground: oklch(0.145 0.02 258.34); /* #19253f */
+  --primary: oklch(0.145 0.02 258.34); /* #19253f - Primary dark */
+  --primary-foreground: oklch(1 0 0); /* #ffffff */
+  --secondary: oklch(0.29 0.04 258.34); /* #244676 - Primary medium */
+  --secondary-foreground: oklch(1 0 0); /* #ffffff */
+  --muted: oklch(0.85 0.005 240); /* #d1d5db */
+  --muted-foreground: oklch(0.145 0.02 258.34); /* #19253f */
+  --accent: oklch(0.65 0.15 45); /* #e4702b - Accent orange */
+  --accent-foreground: oklch(1 0 0); /* #ffffff */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.85 0.005 240); /* #d1d5db */
+  --input: oklch(0.97 0.005 240); /* #f1f5f9 */
+  --ring: oklch(0.65 0.15 45); /* #e4702b */
+  --chart-1: oklch(0.29 0.04 258.34); /* #244676 */
+  --chart-2: oklch(0.65 0.15 45); /* #e4702b */
+  --chart-3: oklch(0.22 0.03 258.34); /* #18355d - Secondary dark */
+  --chart-4: oklch(0.85 0.005 240); /* #d1d5db */
+  --chart-5: oklch(0.97 0.005 240); /* #f1f5f9 */
+  --radius: 0.5rem;
+  --sidebar: oklch(0.145 0.02 258.34); /* #19253f */
+  --sidebar-foreground: oklch(1 0 0); /* #ffffff */
+  --sidebar-primary: oklch(0.29 0.04 258.34); /* #244676 */
+  --sidebar-primary-foreground: oklch(1 0 0); /* #ffffff */
+  --sidebar-accent: oklch(0.65 0.15 45); /* #e4702b */
+  --sidebar-accent-foreground: oklch(1 0 0); /* #ffffff */
+  --sidebar-border: oklch(0.85 0.005 240); /* #d1d5db */
+  --sidebar-ring: oklch(0.65 0.15 45); /* #e4702b */
+}
+
+.dark {
+  --background: oklch(0.145 0.02 258.34); /* #19253f */
+  --foreground: oklch(1 0 0); /* #ffffff */
+  --card: oklch(0.22 0.03 258.34); /* #18355d */
+  --card-foreground: oklch(1 0 0); /* #ffffff */
+  --popover: oklch(0.145 0.02 258.34); /* #19253f */
+  --popover-foreground: oklch(1 0 0); /* #ffffff */
+  --primary: oklch(1 0 0); /* #ffffff */
+  --primary-foreground: oklch(0.145 0.02 258.34); /* #19253f */
+  --secondary: oklch(0.29 0.04 258.34); /* #244676 */
+  --secondary-foreground: oklch(1 0 0); /* #ffffff */
+  --muted: oklch(0.22 0.03 258.34); /* #18355d */
+  --muted-foreground: oklch(0.85 0.005 240); /* #d1d5db */
+  --accent: oklch(0.65 0.15 45); /* #e4702b */
+  --accent-foreground: oklch(1 0 0); /* #ffffff */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.22 0.03 258.34); /* #18355d */
+  --input: oklch(0.22 0.03 258.34); /* #18355d */
+  --ring: oklch(0.65 0.15 45); /* #e4702b */
+  --chart-1: oklch(0.29 0.04 258.34); /* #244676 */
+  --chart-2: oklch(0.65 0.15 45); /* #e4702b */
+  --chart-3: oklch(0.85 0.005 240); /* #d1d5db */
+  --chart-4: oklch(0.97 0.005 240); /* #f1f5f9 */
+  --chart-5: oklch(1 0 0); /* #ffffff */
+  --sidebar: oklch(0.145 0.02 258.34); /* #19253f */
+  --sidebar-foreground: oklch(1 0 0); /* #ffffff */
+  --sidebar-primary: oklch(0.65 0.15 45); /* #e4702b */
+  --sidebar-primary-foreground: oklch(1 0 0); /* #ffffff */
+  --sidebar-accent: oklch(0.22 0.03 258.34); /* #18355d */
+  --sidebar-accent-foreground: oklch(1 0 0); /* #ffffff */
+  --sidebar-border: oklch(0.22 0.03 258.34); /* #18355d */
+  --sidebar-ring: oklch(0.65 0.15 45); /* #e4702b */
+}
+
+/* Updated font configuration for Rubik as specified in requirements */
+@theme inline {
+  --font-sans: "Rubik", var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom styles for Futuro Corp website */
+@layer components {
+  .hero-gradient {
+    background: linear-gradient(135deg, theme(colors.primary) 0%, theme(colors.secondary) 100%);
+  }
+
+  .methodology-card {
+    transition: all 0.3s ease;
+  }
+
+  .methodology-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  .subsidiary-logo {
+    transition: all 0.2s ease;
+    filter: grayscale(100%);
+  }
+
+  .subsidiary-logo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+}
