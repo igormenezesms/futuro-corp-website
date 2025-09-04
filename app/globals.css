@@ -1,23 +1,30 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+/* app/globals.css
+   Simplified for Vercel/Next.js builds:
+   - usa diretivas padrão do Tailwind
+   - mantém as variáveis de marca
+   - remove at-rules que exigem plugins extras no build
+*/
 
-@custom-variant dark (&:is(.dark *));
+/* Tailwind core */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Brand tokens (mantive seu conjunto de cores em oklch) */
 :root {
-  /* Updated color tokens to match Futuro Corp brand palette */
   --background: oklch(1 0 0); /* #ffffff */
   --foreground: oklch(0.145 0.02 258.34); /* #19253f */
   --card: oklch(0.97 0.005 240); /* #f1f5f9 */
   --card-foreground: oklch(0.145 0.02 258.34); /* #19253f */
   --popover: oklch(1 0 0); /* #ffffff */
   --popover-foreground: oklch(0.145 0.02 258.34); /* #19253f */
-  --primary: oklch(0.145 0.02 258.34); /* #19253f - Primary dark */
+  --primary: oklch(0.145 0.02 258.34); /* #19253f */
   --primary-foreground: oklch(1 0 0); /* #ffffff */
-  --secondary: oklch(0.29 0.04 258.34); /* #244676 - Primary medium */
+  --secondary: oklch(0.29 0.04 258.34); /* #244676 */
   --secondary-foreground: oklch(1 0 0); /* #ffffff */
   --muted: oklch(0.85 0.005 240); /* #d1d5db */
   --muted-foreground: oklch(0.145 0.02 258.34); /* #19253f */
-  --accent: oklch(0.65 0.15 45); /* #e4702b - Accent orange */
+  --accent: oklch(0.65 0.15 45); /* #e4702b */
   --accent-foreground: oklch(1 0 0); /* #ffffff */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
@@ -26,128 +33,97 @@
   --ring: oklch(0.65 0.15 45); /* #e4702b */
   --chart-1: oklch(0.29 0.04 258.34); /* #244676 */
   --chart-2: oklch(0.65 0.15 45); /* #e4702b */
-  --chart-3: oklch(0.22 0.03 258.34); /* #18355d - Secondary dark */
+  --chart-3: oklch(0.22 0.03 258.34); /* #18355d */
   --chart-4: oklch(0.85 0.005 240); /* #d1d5db */
   --chart-5: oklch(0.97 0.005 240); /* #f1f5f9 */
   --radius: 0.5rem;
   --sidebar: oklch(0.145 0.02 258.34); /* #19253f */
-  --sidebar-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-primary: oklch(0.29 0.04 258.34); /* #244676 */
-  --sidebar-primary-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-accent: oklch(0.65 0.15 45); /* #e4702b */
-  --sidebar-accent-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-border: oklch(0.85 0.005 240); /* #d1d5db */
-  --sidebar-ring: oklch(0.65 0.15 45); /* #e4702b */
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.29 0.04 258.34);
+  --sidebar-accent: oklch(0.65 0.15 45);
+  --sidebar-border: oklch(0.85 0.005 240);
+  --sidebar-ring: oklch(0.65 0.15 45);
+  --font-sans: "Rubik", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New";
 }
 
+/* Dark mode tokens */
 .dark {
   --background: oklch(0.145 0.02 258.34); /* #19253f */
   --foreground: oklch(1 0 0); /* #ffffff */
   --card: oklch(0.22 0.03 258.34); /* #18355d */
   --card-foreground: oklch(1 0 0); /* #ffffff */
-  --popover: oklch(0.145 0.02 258.34); /* #19253f */
-  --popover-foreground: oklch(1 0 0); /* #ffffff */
-  --primary: oklch(1 0 0); /* #ffffff */
-  --primary-foreground: oklch(0.145 0.02 258.34); /* #19253f */
-  --secondary: oklch(0.29 0.04 258.34); /* #244676 */
-  --secondary-foreground: oklch(1 0 0); /* #ffffff */
-  --muted: oklch(0.22 0.03 258.34); /* #18355d */
-  --muted-foreground: oklch(0.85 0.005 240); /* #d1d5db */
-  --accent: oklch(0.65 0.15 45); /* #e4702b */
-  --accent-foreground: oklch(1 0 0); /* #ffffff */
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.22 0.03 258.34); /* #18355d */
-  --input: oklch(0.22 0.03 258.34); /* #18355d */
-  --ring: oklch(0.65 0.15 45); /* #e4702b */
-  --chart-1: oklch(0.29 0.04 258.34); /* #244676 */
-  --chart-2: oklch(0.65 0.15 45); /* #e4702b */
-  --chart-3: oklch(0.85 0.005 240); /* #d1d5db */
-  --chart-4: oklch(0.97 0.005 240); /* #f1f5f9 */
-  --chart-5: oklch(1 0 0); /* #ffffff */
-  --sidebar: oklch(0.145 0.02 258.34); /* #19253f */
-  --sidebar-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-primary: oklch(0.65 0.15 45); /* #e4702b */
-  --sidebar-primary-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-accent: oklch(0.22 0.03 258.34); /* #18355d */
-  --sidebar-accent-foreground: oklch(1 0 0); /* #ffffff */
-  --sidebar-border: oklch(0.22 0.03 258.34); /* #18355d */
-  --sidebar-ring: oklch(0.65 0.15 45); /* #e4702b */
+  --popover: oklch(0.145 0.02 258.34);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0.145 0.02 258.34);
+  --secondary: oklch(0.29 0.04 258.34);
+  --muted: oklch(0.22 0.03 258.34);
+  --muted-foreground: oklch(0.85 0.005 240);
+  --accent: oklch(0.65 0.15 45);
+  --accent-foreground: oklch(1 0 0);
+  --border: oklch(0.22 0.03 258.34);
+  --input: oklch(0.22 0.03 258.34);
+  --ring: oklch(0.65 0.15 45);
+  --chart-1: oklch(0.29 0.04 258.34);
+  --chart-2: oklch(0.65 0.15 45);
+  --chart-3: oklch(0.85 0.005 240);
+  --chart-4: oklch(0.97 0.005 240);
+  --chart-5: oklch(1 0 0);
+  --sidebar: oklch(0.145 0.02 258.34);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.65 0.15 45);
+  --sidebar-accent: oklch(0.22 0.03 258.34);
+  --sidebar-border: oklch(0.22 0.03 258.34);
+  --sidebar-ring: oklch(0.65 0.15 45);
 }
 
-/* Updated font configuration for Rubik as specified in requirements */
-@theme inline {
-  --font-sans: "Rubik", var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
+/* Base resets and root styling */
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { height: 100%; }
   body {
-    @apply bg-background text-foreground;
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
   }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; display: block; }
 }
 
-/* Added custom styles for Futuro Corp website */
+/* Small set of component helpers (keeps your original names) */
 @layer components {
   .hero-gradient {
-    background: linear-gradient(135deg, theme(colors.primary) 0%, theme(colors.secondary) 100%);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--primary-foreground);
   }
 
   .methodology-card {
-    transition: all 0.3s ease;
+    transition: transform .25s ease, box-shadow .25s ease;
+    border-radius: var(--radius);
+    background: var(--card);
+    color: var(--card-foreground);
   }
 
   .methodology-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.06);
   }
 
   .subsidiary-logo {
-    transition: all 0.2s ease;
-    filter: grayscale(100%);
+    transition: transform .18s ease, filter .18s ease;
+    filter: grayscale(1);
   }
 
   .subsidiary-logo:hover {
-    filter: grayscale(0%);
+    filter: none;
     transform: scale(1.05);
   }
 }
+
+/* Nothing more here — mantemos simples para o first-pass */
