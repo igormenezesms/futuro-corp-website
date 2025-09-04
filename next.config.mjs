@@ -25,4 +25,4 @@ const nextConfig = {
   assetPrefix: `/${repoName}/`,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
