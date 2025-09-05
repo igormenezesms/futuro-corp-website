@@ -1,11 +1,7 @@
-import tailwindcss from '@tailwindcss/postcss';
-import autoprefixer from 'autoprefixer';
-
 /** @type {import('postcss-load-config').Config} */
 export default {
-  plugins: [
-    tailwindcss({
-      // Início da configuração do Tailwind
+  plugins: {
+    '@tailwindcss/postcss': {
       content: [
         './pages/**/*.{js,ts,jsx,tsx,mdx}',
         './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -15,8 +11,7 @@ export default {
         extend: {},
       },
       plugins: [],
-      // Fim da configuração do Tailwind
-    }),
-    autoprefixer,
-  ],
+    },
+    'autoprefixer': {},
+  },
 };
